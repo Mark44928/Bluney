@@ -1,0 +1,35 @@
+# Bluney Light — blue-injected terminal theme
+# Install: cp extras/alacritty.toml ~/.config/alacritty/themes/bluney.toml
+# Then add `import = ["~/.../bluney.toml"]` to alacritty.toml
+
+[colors.primary]
+background = "#F0F5FB"
+foreground = "#1E2F45"
+
+[colors.cursor]
+cursor = "#1E2F45"
+text = "#F0F5FB"
+
+[colors.selection]
+background = "#E3EAF6"
+foreground = "#1E2F45"
+
+[colors.normal]
+black   = "#E3EAF6"
+red     = "#AE4A42"
+green   = "#2F6FB8"
+yellow  = "#7A5F1A"
+blue    = "#2F5E9E"
+magenta = "#6B5AA8"
+cyan    = "#1B6E8A"
+white   = "#1E2F45"
+
+[colors.bright]
+black   = "#5A6F8A"
+red     = "#D0705F"
+green   = "#4F8FD4"
+yellow  = "#A08428"
+blue    = "#5B7FC4"
+magenta = "#8B7FD4"
+cyan    = "#3E9EB8"
+white   = "#FFFFFF"

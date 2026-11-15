@@ -183,10 +183,12 @@ BUILDS = [
     ("kitty.conf.tmpl", "extras/kitty.conf", "dark"),
     ("kitty.conf.tmpl", "extras/kitty-light.conf", "light"),
     ("alacritty.toml.tmpl", "extras/alacritty.toml", "dark"),
+    ("alacritty.toml.tmpl", "extras/alacritty-light.toml", "light"),
     ("ghostty.tmpl", "extras/ghostty", "dark"),
     ("ghostty.tmpl", "extras/ghostty-light", "light"),
     ("wezterm.lua.tmpl", "extras/wezterm.lua", None),
     ("windows-terminal.json.tmpl", "extras/windows-terminal.json", "dark"),
+    ("windows-terminal.json.tmpl", "extras/windows-terminal-light.json", "light"),
     ("bluney.itermcolors.tmpl", "extras/bluney.itermcolors", "dark"),
     ("bluney.vim.tmpl", "colors/bluney.vim", None),
     ("bluney-light.vim.tmpl", "colors/bluney-light.vim", "light"),
@@ -273,6 +275,7 @@ def main(argv=None):
             ctx = {
                 "P": p,
                 "variant": variant,
+                "variant_name": "Dark" if variant == "dark" else "Light",
                 "is_light": variant == "light",
                 "vid": "01" if variant == "dark" else "02",
             }

@@ -1,0 +1,23 @@
+{
+  "name": "Bluney Light",
+
+  "background": "#F0F5FB",
+  "foreground": "#1E2F45",
+  "cursorColor": "#1E2F45",
+  "black": "#E3EAF6",
+  "red": "#AE4A42",
+  "green": "#2F6FB8",
+  "yellow": "#7A5F1A",
+  "blue": "#2F5E9E",
+  "purple": "#6B5AA8",
+  "cyan": "#1B6E8A",
+  "white": "#1E2F45",
+  "brightBlack": "#5A6F8A",
+  "brightRed": "#D0705F",
+  "brightGreen": "#4F8FD4",
+  "brightYellow": "#A08428",
+  "brightBlue": "#5B7FC4",
+  "brightPurple": "#8B7FD4",
+  "brightCyan": "#3E9EB8",
+  "brightWhite": "#FFFFFF"
+}
