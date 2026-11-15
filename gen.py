@@ -190,6 +190,7 @@ BUILDS = [
     ("windows-terminal.json.tmpl", "extras/windows-terminal.json", "dark"),
     ("windows-terminal.json.tmpl", "extras/windows-terminal-light.json", "light"),
     ("bluney.itermcolors.tmpl", "extras/bluney.itermcolors", "dark"),
+    ("bluney.itermcolors.tmpl", "extras/bluney-light.itermcolors", "light"),
     ("bluney.vim.tmpl", "colors/bluney.vim", None),
     ("bluney-light.vim.tmpl", "colors/bluney-light.vim", "light"),
     # New app integrations (both variants)
