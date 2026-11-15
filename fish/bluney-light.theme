@@ -1,0 +1,38 @@
+# Bluney light — fish shell theme
+# Install: cp fish/bluney-light.theme ~/.config/fish/themes/
+# Then: fish_config  →  select "Bluney light"
+# Or:   set -U fish_color_* values manually (see below)
+
+# name: Bluney light
+# preferred_background: #F0F5FB
+
+fish_color_normal "#1E2F45"
+fish_color_command "#2F6FB8"
+fish_color_param "#2F5E9E"
+fish_color_redirection "#1F7E9E"
+fish_color_end "#2F6FB8"
+fish_color_error "#C0574E"
+fish_color_comment "#5A6F8A"
+fish_color_match --background="#E3EAF6"
+fish_color_selection --background="#E3EAF6"
+fish_color_search_match --background="#8A6D1F"
+fish_color_history_current --bold
+fish_color_cwd "#1E2F45"
+fish_color_cwd_root "#C0574E"
+fish_color_valid_path --underline
+fish_color_operator "#8A6D1F"
+fish_color_escape "#1F7E9E"
+fish_color_quote "#2F5E9E"
+fish_color_keyword "#6B5AA8"
+fish_color_option "#2F6FB8"
+fish_color_user "#2F6FB8"
+fish_color_host "#2F5E9E"
+fish_color_host_remote "#C0574E"
+fish_color_cancel "#F0F5FB" --background="#1E2F45"
+fish_color_autosuggestion "#5A6F8A"
+
+# Pager colors
+fish_pager_color_prefix "#2F6FB8" --bold --underline
+fish_pager_color_completion "#1E2F45"
+fish_pager_color_description "#2F5E9E"
+fish_pager_color_progress "#2F6FB8" --background="#E3EAF6" --bold

@@ -1,0 +1,13 @@
+# Bluney dark — ripgrep color configuration
+# Install: cp ripgrep/bluney-dark.rc ~/.ripgreprc
+# Then: export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+# Uses 24-bit truecolor hex values (#RRGGBB).
+
+--colors=match:fg:125,187,255
+--colors=match:style:bold
+--colors=path:fg:79,143,224
+--colors=path:style:bold
+--colors=line:fg:126,155,184
+--colors=column:fg:127,215,242
+--colors=highlight:bg:224,205,151
+--colors=highlight:fg:14,27,46

@@ -1,0 +1,87 @@
+# Bluney light — helix theme.toml
+# Install: cp helix/bluney-light.toml ~/.config/helix/themes/bluney-light.toml
+# Select: theme = "bluney-light" in ~/.config/helix/config.toml
+
+"ui.background" = { fg = "#1E2F45", bg = "#F0F5FB" }
+"ui.background.separator" = { fg = "#5A6F8A" }
+"ui.linenr" = { fg = "#5A6F8A" }
+"ui.linenr.selected" = { fg = "#2F6FB8" }
+"ui.statusline" = { fg = "#1E2F45", bg = "#E3EAF6", bold = true }
+"ui.statusline.inactive" = { fg = "#5A6F8A", bg = "#F0F5FB" }
+"ui.popup" = { bg = "#E3EAF6" }
+"ui.window" = { fg = "#5A6F8A" }
+"ui.help" = { bg = "#E3EAF6", fg = "#1E2F45" }
+"ui.text" = { fg = "#1E2F45" }
+"ui.text.focus" = { fg = "#1E2F45", modifiers = ["bold"] }
+"ui.text.inactive" = "#5A6F8A"
+"ui.text.directory" = { fg = "#2F6FB8" }
+"ui.virtual" = { fg = "#5A6F8A" }
+"ui.selection" = { bg = "#2F6FB8" }
+"ui.selection.primary" = { bg = "#2F6FB8" }
+"ui.cursor.select" = { bg = "#2F5E9E" }
+"ui.cursor.insert" = { bg = "#1F7E9E" }
+"ui.cursor.match" = { fg = "#F0F5FB", bg = "#8A6D1F" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "#E3EAF6" }
+"ui.highlight" = { bg = "#E3EAF6" }
+"ui.menu" = { fg = "#1E2F45", bg = "#E3EAF6" }
+"ui.menu.selected" = { fg = "#F0F5FB", bg = "#2F6FB8" }
+
+"diagnostic.hint" = { underline = { color = "#1F7E9E", style = "curl" } }
+"diagnostic.info" = { underline = { color = "#2F5E9E", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "#8A6D1F", style = "curl" } }
+"diagnostic.error" = { underline = { color = "#C0574E", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+warning = "#8A6D1F"
+error = "#C0574E"
+info = "#2F5E9E"
+hint = "#1F7E9E"
+
+attribute = "#2F5E9E"
+keyword = "#6B5AA8"
+"keyword.directive" = "#6B5AA8"
+namespace = "#6B5AA8"
+punctuation = "#5A6F8A"
+operator = "#8A6D1F"
+special = "#2F6FB8"
+variable = "#1E2F45"
+"variable.builtin" = "#6B5AA8"
+type = "#1F7E9E"
+constructor = "#2F5E9E"
+function = "#2F6FB8"
+"function.macro" = "#2F6FB8"
+tag = "#6B5AA8"
+comment = "#5A6F8A"
+constant = "#6B5AA8"
+string = "#2F6FB8"
+"constant.numeric" = "#1F7E9E"
+"constant.character.escape" = "#2F5E9E"
+label = "#8A6D1F"
+tabstop = { modifiers = ["italic"], bg = "#E3EAF6" }
+
+"markup.heading" = { fg = "#2F6FB8", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "#1F7E9E", modifiers = ["underlined"] }
+"markup.raw" = "#2F6FB8"
+
+"diff.plus" = "#2F6FB8"
+"diff.minus" = "#C0574E"
+"diff.delta" = "#8A6D1F"
+
+rainbow = ["#2F6FB8", "#2F5E9E", "#8A6D1F", "#1F7E9E", "#6B5AA8"]
+
+[palette]
+fg = "#1E2F45"
+bg = "#F0F5FB"
+primary = "#2F6FB8"
+secondary = "#2F5E9E"
+yellow = "#8A6D1F"
+rose = "#6B5AA8"
+cyan = "#1F7E9E"
+error = "#C0574E"
+comment = "#5A6F8A"
+surface = "#E3EAF6"

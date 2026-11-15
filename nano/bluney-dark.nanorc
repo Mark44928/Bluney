@@ -1,0 +1,50 @@
+# Bluney dark — nano nanorc theme
+# Install: cp nano/bluney-dark.nanorc ~/.config/nano/nanorc
+# or: echo "include ~/.config/nano/nanorc" >> ~/.nanorc
+# Colors use nano's 3-digit hex #RGB form (high nibble of each channel).
+
+set titlecolor bold,#7BF,#0E1B2E
+set keycolor bold,#48E,#0E1B2E
+set selectedcolor #DEF,#7BF
+set statuscolor #DEF,#124
+set errorcolor bold,#E88,#0E1B2E
+set functioncolor #7DF,#0E1B2E
+set numbercolor #EC9,#0E1B2E
+set stripecolor #79B,#0E1B2E
+set scrollercolor #79B,#0E1B2E
+set promptcolor #7BF,#0E1B2E
+set minicolor #DEF,#0E1B2E
+set spotcolor #48E,#0E1B2E
+set icolor #EC9,#0E1B2E
+
+# Basic syntax highlighting — mirrors the vim recipe
+syntax "bluney" "\.(c|h|py|sh|js|ts|lua|rs|go|vim|toml|yaml|yml|json|md|txt|conf)$"
+
+# Comments
+color #79B,normal "^\s*#.*$"
+color #79B,normal "//.*$"
+color #79B,normal "/\*.*\*/"
+
+# Strings
+color #7BF,normal "\"[^\"]*\""
+color #7BF,normal "'[^']*'"
+
+# Keywords
+color #BAE,normal "\<(if|then|else|elif|fi|do|done|case|esac|for|while|until|function|return|break|continue)\>"
+color #BAE,normal "\<(if|elif|else|for|while|def|class|return|break|continue|import|from|as|with|try|except|finally|lambda|yield|async|await)\>"
+
+# Types/builtins
+color #7DF,normal "\<(int|float|str|bool|list|dict|tuple|set|None|True|False|print|len|open|range|print)\>"
+color #7DF,normal "\<(string|integer|number|boolean|array|object|null|true|false|null)\>"
+
+# Numbers
+color #7DF,normal "[0-9]+"
+
+# Operators/punctuation
+color #EC9,normal "\(\)\{\}\[\]"
+color #EC9,normal "[=+\-*/%!<>&|^~,.;:]"
+
+# Filenames/paths
+color #48E,normal "\b[A-Za-z_][A-Za-z0-9_]*\.[a-zA-Z0-9_]+\b"
+
+include "/usr/share/nano/*.nanorc"

@@ -1,0 +1,38 @@
+# Bluney dark — fish shell theme
+# Install: cp fish/bluney-dark.theme ~/.config/fish/themes/
+# Then: fish_config  →  select "Bluney dark"
+# Or:   set -U fish_color_* values manually (see below)
+
+# name: Bluney dark
+# preferred_background: #0E1B2E
+
+fish_color_normal "#D5E5F2"
+fish_color_command "#7DBBFF"
+fish_color_param "#4F8FE0"
+fish_color_redirection "#7FD7F2"
+fish_color_end "#7DBBFF"
+fish_color_error "#E18B8B"
+fish_color_comment "#7E9BB8"
+fish_color_match --background="#152A45"
+fish_color_selection --background="#152A45"
+fish_color_search_match --background="#E0CD97"
+fish_color_history_current --bold
+fish_color_cwd "#D5E5F2"
+fish_color_cwd_root "#E18B8B"
+fish_color_valid_path --underline
+fish_color_operator "#E0CD97"
+fish_color_escape "#7FD7F2"
+fish_color_quote "#4F8FE0"
+fish_color_keyword "#B9A8E0"
+fish_color_option "#7DBBFF"
+fish_color_user "#7DBBFF"
+fish_color_host "#4F8FE0"
+fish_color_host_remote "#E18B8B"
+fish_color_cancel "#0E1B2E" --background="#D5E5F2"
+fish_color_autosuggestion "#7E9BB8"
+
+# Pager colors
+fish_pager_color_prefix "#7DBBFF" --bold --underline
+fish_pager_color_completion "#D5E5F2"
+fish_pager_color_description "#4F8FE0"
+fish_pager_color_progress "#7DBBFF" --background="#152A45" --bold

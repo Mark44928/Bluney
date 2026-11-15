@@ -1,0 +1,22 @@
+{
+  "name": "Bluney Dark",
+  "background": "#0E1B2E",
+  "foreground": "#D5E5F2",
+  "cursorColor": "#D5E5F2",
+  "black": "#16283E",
+  "red": "#E18B8B",
+  "green": "#7DBBFF",
+  "yellow": "#E0CD97",
+  "blue": "#4F8FE0",
+  "purple": "#B9A8E0",
+  "cyan": "#7FD7F2",
+  "white": "#D5E5F2",
+  "brightBlack": "#5F7E9E",
+  "brightRed": "#F0A8A8",
+  "brightGreen": "#A8D4FF",
+  "brightYellow": "#EBDFA8",
+  "brightBlue": "#7FA9E8",
+  "brightPurple": "#CDBEF0",
+  "brightCyan": "#A8E8F8",
+  "brightWhite": "#FFFFFF"
+}

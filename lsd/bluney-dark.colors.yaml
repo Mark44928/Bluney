@@ -1,0 +1,46 @@
+# Bluney dark — lsd colors theme
+# Install: cp lsd/bluney-dark.colors.yaml ~/.config/lsd/colors.yaml
+# Enable in ~/.config/lsd/config.yaml:
+#   color:
+#     theme: custom
+#
+# Hex #RRGGBB values supported by lsd.
+
+user: "#D5E5F2"
+group: "#4F8FE0"
+permission:
+  read: "#7DBBFF"
+  write: "#E0CD97"
+  exec: "#7FD7F2"
+  exec-sticky: "#B9A8E0"
+  no-access: "#7E9BB8"
+  octal: "#7E9BB8"
+  acl: "#7FD7F2"
+  context: "#4F8FE0"
+date:
+  hour-old: "#7DBBFF"
+  day-old: "#4F8FE0"
+  older: "#7E9BB8"
+size:
+  none: "#7E9BB8"
+  small: "#7DBBFF"
+  medium: "#E0CD97"
+  large: "#B9A8E0"
+inode:
+  valid: "#4F8FE0"
+  invalid: "#7E9BB8"
+links:
+  valid: "#4F8FE0"
+  invalid: "#7E9BB8"
+tree-edge: "#7E9BB8"
+git-status:
+  default: "#7E9BB8"
+  unmodified: "#7E9BB8"
+  ignored: "#7E9BB8"
+  new-in-index: "#7DBBFF"
+  new-in-workdir: "#7DBBFF"
+  typechange: "#E0CD97"
+  deleted: "#E18B8B"
+  renamed: "#7DBBFF"
+  modified: "#E0CD97"
+  conflicted: "#E18B8B"

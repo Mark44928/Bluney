@@ -1,0 +1,30 @@
+# Bluney light — vivid theme
+# vivid (https://github.com/sharkdp/vivid) generates LS_COLORS from a theme file.
+#
+#   vivid generate bluney-light.yml                       # print LS_COLORS
+#   eval "$(vivid generate bluney-light.yml)"             # or apply it
+#   vivid apply bluney-light.yml -V                       # preview in the repo
+colors:
+  background: "#F0F5FB"
+  foreground: "#1E2F45"
+  cursor: "#1E2F45"
+  selection_background: "#E3EAF6"
+  selection_foreground: "#1E2F45"
+  normal:
+    black: "#E3EAF6"
+    red: "#C0574E"
+    green: "#2F6FB8"
+    yellow: "#8A6D1F"
+    blue: "#2F5E9E"
+    magenta: "#6B5AA8"
+    cyan: "#1F7E9E"
+    white: "#1E2F45"
+  bright:
+    black: "#5A6F8A"
+    red: "#D0705F"
+    green: "#4F8FD4"
+    yellow: "#A08428"
+    blue: "#5B7FC4"
+    magenta: "#8B7FD4"
+    cyan: "#3E9EB8"
+    white: "#FFFFFF"

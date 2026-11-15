@@ -1,0 +1,41 @@
+# Bluney light — exa colors
+# Export: export EXA_COLORS="$(cat exa/bluney-light.colors)"
+# Or source directly: . "$HOME/Bluney/exa/bluney-light.colors"
+# Uses 256-color ANSI codes (38;5;nnn) mapped to nearest palette color.
+# File classes (LS_COLORS) plus exa UI metadata (EXA_COLORS).
+
+di=38;5;25
+ex=38;5;25
+fi=38;5;236
+ln=38;5;31
+or=38;5;60
+cd=38;5;68
+bd=38;5;68
+so=38;5;31
+pi=38;5;94
+ur=38;5;236
+uw=38;5;236
+ux=38;5;25
+ue=38;5;25
+gr=38;5;60
+gw=38;5;60
+gx=38;5;60
+tr=38;5;60
+tw=38;5;60
+tx=38;5;60
+su=38;5;131
+sf=38;5;131
+xa=38;5;25
+da=38;5;60
+in=38;5;60
+xx=38;5;255
+hd=38;5;60
+uu=38;5;25
+un=38;5;60
+gu=38;5;25
+gn=38;5;60
+lc=38;5;60
+sn=38;5;60
+sb=38;5;255
+df=38;5;60
+ds=38;5;60

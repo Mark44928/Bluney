@@ -1,0 +1,291 @@
+#!/data/data/com.termux/files/usr/bin/env python3
+"""Render every Bluney artifact from palette.json.
+
+Contract: running this script must leave `git diff` empty — generated
+output is byte-identical to the committed files. That is the proof the
+templates faithfully reproduce the theme family (dark + light variants).
+"""
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+PALETTE = ROOT / "palette.json"
+TEMPLATES = ROOT / "templates"
+
+TAG_RE = re.compile(r"\{\{(#variant|#if|#else|/variant|/if)\b([^}]*)\}\}")
+INTERP_RE = re.compile(r"\$\{([^}]+)\}")
+
+def _ansi256_cube(n):
+    return (0, 95, 135, 175, 215, 255)[n]
+
+
+def _ansi256_gray(n):
+    return 8 + n * 10
+
+
+def _ansi256_colors():
+    colors = []
+    # 0-15: standard ANSI
+    for i in range(16):
+        r = (i & 1) and 255 or 0
+        g = (i & 2) and 255 or 0
+        b = (i & 4) and 255 or 0
+        colors.append((r, g, b))
+    # 16-231: 6x6x6 color cube
+    for r in range(6):
+        for g in range(6):
+            for b in range(6):
+                colors.append((_ansi256_cube(r), _ansi256_cube(g), _ansi256_cube(b)))
+    # 232-255: grayscale
+    for i in range(24):
+        colors.append((_ansi256_gray(i), _ansi256_gray(i), _ansi256_gray(i)))
+    return colors
+
+
+_ANSI256 = _ansi256_colors()
+
+
+def ansi256(h):
+    h = h.lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    best, best_d = 0, None
+    for i, (cr, cg, cb) in enumerate(_ANSI256):
+        d = (r - cr) ** 2 + (g - cg) ** 2 + (b - cb) ** 2
+        if best_d is None or d < best_d:
+            best, best_d = i, d
+    return str(best)
+
+
+def rgb(h):
+    h = h.lstrip("#")
+    return f"{int(h[0:2], 16)},{int(h[2:4], 16)},{int(h[4:6], 16)}"
+
+
+def rgb3(h):
+    h = h.lstrip("#")
+    return f"#{h[0]}{h[2]}{h[4]}"
+
+
+FUNCS = {
+    "rgb_r": lambda h: f"{int(h[1:3], 16) / 255:.3f}",
+    "rgb_g": lambda h: f"{int(h[3:5], 16) / 255:.3f}",
+    "rgb_b": lambda h: f"{int(h[5:7], 16) / 255:.3f}",
+    "ansi256": ansi256,
+    "rgb": rgb,
+    "rgb3": rgb3,
+    "nohash": lambda h: h.lstrip("#"),  # INI-style configs want bare hex
+}
+
+
+def resolve(ctx, expr):
+    expr = expr.strip()
+    m = re.match(r"^([a-zA-Z_][a-zA-Z0-9_]*):(.+)$", expr)
+    if m:
+        name, arg = m.group(1), m.group(2)
+        if name not in FUNCS:
+            raise KeyError(f"unknown template function ${name}:{arg}")
+        return FUNCS[name](resolve(ctx, arg))
+    cur = ctx
+    for part in expr.split("."):
+        m = re.match(r"^([^\[]+)\[(\d+)\]$", part)
+        if m:
+            key, index = m.group(1), int(m.group(2))
+            cur = cur[key]
+            cur = cur[index]
+        elif isinstance(cur, dict) and part in cur:
+            cur = cur[part]
+        else:
+            raise KeyError(f"undefined palette key ${{{expr}}}")
+    return cur
+
+
+def truthy(cond, ctx):
+    cond = cond.strip()
+    neg = cond.startswith("not ")
+    if neg:
+        cond = cond[4:].strip()
+    if cond == "is_light":
+        val = bool(ctx.get("is_light"))
+    else:
+        m = re.match(r'^variant\s*==\s*["\']([^"\']*)["\']$', cond)
+        if not m:
+            raise KeyError(f"unknown template condition {{#{cond}}}")
+        val = ctx.get("variant") == m.group(1)
+    return not val if neg else val
+
+
+CLOSE_LEN = {"/variant": len("{{/variant}}"), "/if": len("{{/if}}")}
+def find_end(text, start, close_tag):
+    open_name = close_tag[1:]
+    depth = 0
+    else_pos = -1
+    i = start
+    while True:
+        m = TAG_RE.search(text, i)
+        if not m:
+            raise RuntimeError(f"unclosed {{#{open_name}}} section")
+        tag = m.group(1)
+        i = m.end()
+        if tag == f"#{open_name}":
+            depth += 1
+        elif tag == close_tag and depth == 0:
+            return m.start(), else_pos
+        elif tag == f"/{open_name}":
+            depth -= 1
+        elif tag == "#else" and depth == 0 and open_name == "if":
+            else_pos = m.end()
+
+
+def render(text, ctx):
+    out = []
+    i = 0
+    while True:
+        m = TAG_RE.search(text, i)
+        if not m:
+            out.append(text[i:])
+            break
+        out.append(text[i:m.start()])
+        tag, args = m.group(1), m.group(2).strip()
+        if tag in ("/variant", "/if"):
+            raise RuntimeError(f"unmatched closing tag {{{{{tag}}}}}")
+        if tag == "#else":
+            raise RuntimeError("stray {{#else}} outside {{#if}}")
+        if tag == "#variant":
+            end, _ = find_end(text, m.end(), "/variant")
+            v = args
+            variants = ctx["variants"]
+            if v not in variants:
+                raise KeyError(f"unknown variant {v}")
+            ic = dict(ctx)
+            ic["P"] = variants[v]
+            ic["variant"] = v
+            ic["is_light"] = v == "light"
+            out.append(render(text[m.end():end], ic))
+            i = end + CLOSE_LEN["/variant"]
+        elif tag == "#if":
+            end, else_pos = find_end(text, m.end(), "/if")
+            inner = text[m.end(): else_pos if else_pos != -1 else end]
+            if truthy(args, ctx):
+                out.append(render(inner, ctx))
+            elif else_pos != -1:
+                out.append(render(text[else_pos:end], ctx))
+            i = end + CLOSE_LEN["/if"]
+    text = "".join(out)
+    return INTERP_RE.sub(lambda m: str(resolve(ctx, m.group(1))), text)
+
+
+# template -> (output path, variant | None for both-variant template)
+BUILDS = [
+    ("termux.properties.tmpl", "termux/bluney-dark.properties", "dark"),
+    ("termux.properties.tmpl", "termux/bluney-light.properties", "light"),
+    ("kitty.conf.tmpl", "extras/kitty.conf", "dark"),
+    ("kitty.conf.tmpl", "extras/kitty-light.conf", "light"),
+    ("alacritty.toml.tmpl", "extras/alacritty.toml", "dark"),
+    ("ghostty.tmpl", "extras/ghostty", "dark"),
+    ("ghostty.tmpl", "extras/ghostty-light", "light"),
+    ("wezterm.lua.tmpl", "extras/wezterm.lua", None),
+    ("windows-terminal.json.tmpl", "extras/windows-terminal.json", "dark"),
+    ("bluney.itermcolors.tmpl", "extras/bluney.itermcolors", "dark"),
+    ("bluney.vim.tmpl", "colors/bluney.vim", None),
+    ("bluney-light.vim.tmpl", "colors/bluney-light.vim", "light"),
+    # New app integrations (both variants)
+    ("bat.tmTheme.tmpl", "bat/bluney-dark.tmTheme", "dark"),
+    ("bat.tmTheme.tmpl", "bat/bluney-light.tmTheme", "light"),
+    ("fzf.sh.tmpl", "fzf/bluney-dark.sh", "dark"),
+    ("fzf.sh.tmpl", "fzf/bluney-light.sh", "light"),
+    ("dircolors.tmpl", "dircolors/bluney-dark", "dark"),
+    ("dircolors.tmpl", "dircolors/bluney-light", "light"),
+    ("starship.toml.tmpl", "starship/bluney-dark.toml", "dark"),
+    ("starship.toml.tmpl", "starship/bluney-light.toml", "light"),
+    ("tmux.conf.tmpl", "tmux/bluney-dark.conf", "dark"),
+    ("tmux.conf.tmpl", "tmux/bluney-light.conf", "light"),
+    ("btop.theme.tmpl", "btop/bluney-dark.theme", "dark"),
+    ("btop.theme.tmpl", "btop/bluney-light.theme", "light"),
+    # Emacs theme (both variants)
+    ("emacs-theme.el.tmpl", "emacs/bluney-dark-theme.el", "dark"),
+    ("emacs-theme.el.tmpl", "emacs/bluney-light-theme.el", "light"),
+    # Non-GUI shell / git / tooling integrations (both variants)
+    ("powerlevel10k.zsh.tmpl", "powerlevel10k/bluney-dark.zsh", "dark"),
+    ("powerlevel10k.zsh.tmpl", "powerlevel10k/bluney-light.zsh", "light"),
+    ("fish-theme.tmpl", "fish/bluney-dark.theme", "dark"),
+    ("fish-theme.tmpl", "fish/bluney-light.theme", "light"),
+    ("git-config.tmpl", "git/bluney-dark.config", "dark"),
+    ("git-config.tmpl", "git/bluney-light.config", "light"),
+    ("delta-config.tmpl", "delta/bluney-dark.config", "dark"),
+    ("delta-config.tmpl", "delta/bluney-light.config", "light"),
+    ("lsd-colors.tmpl", "lsd/bluney-dark.colors.yaml", "dark"),
+    ("lsd-colors.tmpl", "lsd/bluney-light.colors.yaml", "light"),
+    ("exa-colors.tmpl", "exa/bluney-dark.colors", "dark"),
+    ("exa-colors.tmpl", "exa/bluney-light.colors", "light"),
+    ("ripgrep-config.tmpl", "ripgrep/bluney-dark.rc", "dark"),
+    ("ripgrep-config.tmpl", "ripgrep/bluney-light.rc", "light"),
+    ("less-termcap.tmpl", "less/bluney-dark.termcap", "dark"),
+    ("less-termcap.tmpl", "less/bluney-light.termcap", "light"),
+    # Fastfetch config (both variants)
+    ("fastfetch-config.tmpl", "fastfetch/bluney-dark.jsonc", "dark"),
+    ("fastfetch-config.tmpl", "fastfetch/bluney-light.jsonc", "light"),
+    # Additional editors & tools (both variants)
+    ("yazi-theme.tmpl", "yazi/bluney-dark.toml", "dark"),
+    ("yazi-theme.tmpl", "yazi/bluney-light.toml", "light"),
+    ("helix-theme.tmpl", "helix/bluney-dark.toml", "dark"),
+    ("helix-theme.tmpl", "helix/bluney-light.toml", "light"),
+    ("lazygit-theme.tmpl", "lazygit/bluney-dark.yml", "dark"),
+    ("lazygit-theme.tmpl", "lazygit/bluney-light.yml", "light"),
+    ("nano-theme.tmpl", "nano/bluney-dark.nanorc", "dark"),
+    ("nano-theme.tmpl", "nano/bluney-light.nanorc", "light"),
+    ("zellij-theme.tmpl", "zellij/bluney-dark.kdl", "dark"),
+    ("zellij-theme.tmpl", "zellij/bluney-light.kdl", "light"),
+    # v1.1.0 additions
+    ("vivid.conf.tmpl", "vivid/bluney-dark.yml", "dark"),
+    ("vivid.conf.tmpl", "vivid/bluney-light.yml", "light"),
+    ("foot.ini.tmpl", "foot/bluney-dark.ini", "dark"),
+    ("foot.ini.tmpl", "foot/bluney-light.ini", "light"),
+]
+
+
+def main(argv=None):
+    args = list(sys.argv[1:] if argv is None else argv)
+
+    if "--list" in args:
+        for _, output, _ in BUILDS:
+            print(output)
+        return 0
+
+    only = None
+    if "--only" in args:
+        index = args.index("--only")
+        only = args[index + 1] if index + 1 < len(args) else ""
+
+    with open(PALETTE, encoding="utf-8") as fh:
+        palettes = json.load(fh)["variants"]
+
+    rendered = 0
+    for template_name, output, variant in BUILDS:
+        if only and only not in output:
+            continue
+        template = (TEMPLATES / template_name).read_text(encoding="utf-8")
+        if variant is None:
+            ctx = {"variants": palettes}
+        else:
+            p = palettes[variant]
+            ctx = {
+                "P": p,
+                "variant": variant,
+                "is_light": variant == "light",
+                "vid": "01" if variant == "dark" else "02",
+            }
+        text = render(template, ctx)
+        out_path = ROOT / output
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(text, encoding="utf-8")
+        rendered += 1
+        print(f"rendered {out_path}")
+
+    print(f"rendered {rendered} artifacts from {len(palettes)} variants")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,46 @@
+// Bluney light — fastfetch config
+// Install: cp fastfetch/bluney-light.jsonc ~/.config/fastfetch/config.jsonc
+// Load: fastfetch -c fastfetch/bluney-light.jsonc
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "color": {
+      "1": "#2F6FB8",
+      "2": "#2F5E9E",
+      "3": "#8A6D1F",
+      "4": "#1F7E9E",
+      "5": "#6B5AA8",
+      "6": "#1E2F45"
+    },
+    "padding": { "right": 2 }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "#2F6FB8",
+      "title": "#1E2F45",
+      "output": "#1E2F45",
+      "separator": "#5A6F8A"
+    },
+    "key": { "width": 14 },
+    "percent": { "type": 3 }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    "cpu",
+    "memory",
+    "disk",
+    "break",
+    "colors"
+  ]
+}
