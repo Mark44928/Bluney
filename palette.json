@@ -59,12 +59,12 @@
       },
       "ansi": [
         "#E3EAF6",
-        "#C0574E",
+        "#AE4A42",
         "#2F6FB8",
-        "#8A6D1F",
+        "#7A5F1A",
         "#2F5E9E",
         "#6B5AA8",
-        "#1F7E9E",
+        "#1B6E8A",
         "#1E2F45",
         "#5A6F8A",
         "#D0705F",
@@ -86,10 +86,10 @@
       "accents": {
         "primary": "#2F6FB8",
         "secondary": "#2F5E9E",
-        "yellow": "#8A6D1F",
+        "yellow": "#7A5F1A",
         "rose": "#6B5AA8",
-        "cyan": "#1F7E9E",
-        "error": "#C0574E"
+        "cyan": "#1B6E8A",
+        "error": "#AE4A42"
       }
     }
   }

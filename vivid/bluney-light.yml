@@ -12,12 +12,12 @@ colors:
   selection_foreground: "#1E2F45"
   normal:
     black: "#E3EAF6"
-    red: "#C0574E"
+    red: "#AE4A42"
     green: "#2F6FB8"
-    yellow: "#8A6D1F"
+    yellow: "#7A5F1A"
     blue: "#2F5E9E"
     magenta: "#6B5AA8"
-    cyan: "#1F7E9E"
+    cyan: "#1B6E8A"
     white: "#1E2F45"
   bright:
     black: "#5A6F8A"

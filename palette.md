@@ -25,19 +25,18 @@ Ratios are foreground/background. WCAG 2.0 AA requires ≥ 4.5:1 for normal text
 | Light   | fg / bg         | 12.38 | yes     |
 | Light   | primary / bg    |  4.69 | yes     |
 | Light   | secondary / bg  |  5.96 | yes     |
-| Light   | error / bg      |  4.06 | no*     |
+| Light   | error / bg      |  4.97 | yes     |
 | Light   | rose / bg       |  5.24 | yes     |
-| Light   | cyan / bg       |  4.22 | no*     |
-| Light   | yellow / bg     |  4.47 | no*     |
+| Light   | cyan / bg       |  5.26 | yes     |
+| Light   | yellow / bg     |  5.51 | yes     |
 | Light   | comment / bg    |  4.70 | yes     |
 | Light   | color0 / bg     |  1.10 | no*     |
 | Light   | color8 / bg     |  4.70 | yes     |
 
-\* The **fg/bg** pair passes AA (12.64 dark, 11.52 light). Comment and ANSI
-"black" (color0) levels are intentionally below 4.5:1 — they are decorative
-neutrals. The accent-on-background ratios below 4.5 for the Light variant
-are a property of the recipe's fixed palette (very pale blue background
-plus blue accents).
+\* Every foreground/accent pair in both variants passes AA except the
+decorative ANSI "black" (color0), which is intentionally below 4.5:1. Comment
+and color8 (bright black) are at/near the cut-off by design — they mark
+secondary text, not primary content.
 
 ## Dark Variant — `#0E1B2E`
 
@@ -64,10 +63,10 @@ plus blue accents).
 | comment    | #5A6F8A   | slate             |
 | primary    | #2F6FB8   | blue              |
 | secondary  | #2F5E9E   | steel blue        |
-| yellow     | #8A6D1F   | antique gold      |
+| yellow     | #7A5F1A   | antique gold      |
 | rose       | #6B5AA8   | slate violet      |
-| cyan       | #1F7E9E   | lagoon            |
-| error      | #C0574E   | muted red         |
+| cyan       | #1B6E8A   | lagoon            |
+| error      | #AE4A42   | muted red         |
 
 ## ANSI 16-Color Table
 
@@ -103,12 +102,12 @@ plus blue accents).
 | foreground | #1E2F45   | deep navy          |
 | cursor     | #1E2F45   | deep navy          |
 | color0     | #E3EAF6   | black (blue mist)  |
-| color1     | #C0574E   | red (muted red)    |
+| color1     | #AE4A42   | red (muted red)    |
 | color2     | #2F6FB8   | green (primary)    |
-| color3     | #8A6D1F   | yellow (antique)   |
+| color3     | #7A5F1A   | yellow (antique)   |
 | color4     | #2F5E9E   | blue (steel)       |
 | color5     | #6B5AA8   | magenta (slate-violet)|
-| color6     | #1F7E9E   | cyan (lagoon)      |
+| color6     | #1B6E8A   | cyan (lagoon)      |
 | color7     | #1E2F45   | white (deep navy)  |
 | color8     | #5A6F8A   | bright black (slate)|
 | color9     | #D0705F   | bright red         |

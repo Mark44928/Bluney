@@ -31,8 +31,8 @@ local light = {
   selection_bg = "#E3EAF6",
   selection_fg = "#1E2F45",
   ansi = {
-    "#E3EAF6", "#C0574E", "#2F6FB8", "#8A6D1F",
-    "#2F5E9E", "#6B5AA8", "#1F7E9E", "#1E2F45",
+    "#E3EAF6", "#AE4A42", "#2F6FB8", "#7A5F1A",
+    "#2F5E9E", "#6B5AA8", "#1B6E8A", "#1E2F45",
   },
   brights = {
     "#5A6F8A", "#D0705F", "#4F8FD4", "#A08428",

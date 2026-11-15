@@ -25,9 +25,9 @@ gui:
     markedBaseCommitFgColor:
       - "#2F6FB8"
     markedBaseCommitBgColor:
-      - "#8A6D1F"
+      - "#7A5F1A"
     unstagedChangesColor:
-      - "#C0574E"
+      - "#AE4A42"
     defaultFgColor:
       - "#1E2F45"
     selectedLineFgColor:

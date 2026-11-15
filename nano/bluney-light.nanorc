@@ -7,15 +7,15 @@ set titlecolor bold,#26B,#F0F5FB
 set keycolor bold,#259,#F0F5FB
 set selectedcolor #124,#26B
 set statuscolor #124,#EEF
-set errorcolor bold,#C54,#F0F5FB
-set functioncolor #179,#F0F5FB
-set numbercolor #861,#F0F5FB
+set errorcolor bold,#A44,#F0F5FB
+set functioncolor #168,#F0F5FB
+set numbercolor #751,#F0F5FB
 set stripecolor #568,#F0F5FB
 set scrollercolor #568,#F0F5FB
 set promptcolor #26B,#F0F5FB
 set minicolor #124,#F0F5FB
 set spotcolor #259,#F0F5FB
-set icolor #861,#F0F5FB
+set icolor #751,#F0F5FB
 
 # Basic syntax highlighting — mirrors the vim recipe
 syntax "bluney" "\.(c|h|py|sh|js|ts|lua|rs|go|vim|toml|yaml|yml|json|md|txt|conf)$"
@@ -34,15 +34,15 @@ color #65A,normal "\<(if|then|else|elif|fi|do|done|case|esac|for|while|until|fun
 color #65A,normal "\<(if|elif|else|for|while|def|class|return|break|continue|import|from|as|with|try|except|finally|lambda|yield|async|await)\>"
 
 # Types/builtins
-color #179,normal "\<(int|float|str|bool|list|dict|tuple|set|None|True|False|print|len|open|range|print)\>"
-color #179,normal "\<(string|integer|number|boolean|array|object|null|true|false|null)\>"
+color #168,normal "\<(int|float|str|bool|list|dict|tuple|set|None|True|False|print|len|open|range|print)\>"
+color #168,normal "\<(string|integer|number|boolean|array|object|null|true|false|null)\>"
 
 # Numbers
-color #179,normal "[0-9]+"
+color #168,normal "[0-9]+"
 
 # Operators/punctuation
-color #861,normal "\(\)\{\}\[\]"
-color #861,normal "[=+\-*/%!<>&|^~,.;:]"
+color #751,normal "\(\)\{\}\[\]"
+color #751,normal "[=+\-*/%!<>&|^~,.;:]"
 
 # Filenames/paths
 color #259,normal "\b[A-Za-z_][A-Za-z0-9_]*\.[a-zA-Z0-9_]+\b"

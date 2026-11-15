@@ -20,7 +20,7 @@ Every neutral is hue-shifted toward blue; every accent is a blue derivative."
  '(mode-line ((t (:foreground "#1E2F45" :background "#E3EAF6" :bold t))))
  '(mode-line-inactive ((t (:foreground "#5A6F8A" :background "#F0F5FB"))))
  '(mode-line-buffer-id ((t (:bold t :foreground "#2F6FB8" :background "#E3EAF6"))))
- '(mode-line-highlight ((t (:foreground "#8A6D1F" :background "#E3EAF6" :weight bold))))
+ '(mode-line-highlight ((t (:foreground "#7A5F1A" :background "#E3EAF6" :weight bold))))
  '(minibuffer-prompt ((t (:bold t :foreground "#6B5AA8"))))
 
  ;; Syntax — mirrors colors/bluney.vim
@@ -29,27 +29,27 @@ Every neutral is hue-shifted toward blue; every accent is a blue derivative."
  '(font-lock-function-name-face ((t (:foreground "#2F5E9E" :weight bold))))
  '(font-lock-string-face ((t (:foreground "#2F6FB8"))))
  '(font-lock-variable-name-face ((t (:foreground "#1E2F45"))))
- '(font-lock-type-face ((t (:foreground "#1F7E9E"))))
+ '(font-lock-type-face ((t (:foreground "#1B6E8A"))))
  '(font-lock-constant-face ((t (:foreground "#6B5AA8"))))
  '(font-lock-builtin-face ((t (:foreground "#1E2F45"))))
  '(font-lock-preprocessor-face ((t (:foreground "#6B5AA8"))))
- '(font-lock-warning-face ((t (:foreground "#C0574E"))))
- '(font-lock-number-face ((t (:foreground "#1F7E9E"))))
- '(font-lock-operator-face ((t (:foreground "#8A6D1F"))))
+ '(font-lock-warning-face ((t (:foreground "#AE4A42"))))
+ '(font-lock-number-face ((t (:foreground "#1B6E8A"))))
+ '(font-lock-operator-face ((t (:foreground "#7A5F1A"))))
 
  ;; Diff / org / misc
  '(diff-added ((t (:foreground "#2F6FB8" :background "#E3EAF6"))))
- '(diff-removed ((t (:foreground "#C0574E" :background "#E3EAF6"))))
- '(diff-changed ((t (:foreground "#8A6D1F" :background "#E3EAF6"))))
+ '(diff-removed ((t (:foreground "#AE4A42" :background "#E3EAF6"))))
+ '(diff-changed ((t (:foreground "#7A5F1A" :background "#E3EAF6"))))
  '(org-code ((t (:foreground "#2F6FB8"))))
- '(org-link ((t (:foreground "#1F7E9E" :underline t))))
+ '(org-link ((t (:foreground "#1B6E8A" :underline t))))
  '(org-todo ((t (:weight bold :foreground "#6B5AA8"))))
 
  ;; Highlights
- '(highlight ((t (:foreground "#1E2F45" :background "#8A6D1F"))))
- '(link ((t (:foreground "#1F7E9E" :underline t))))
- '(error ((t (:foreground "#C0574E" :weight bold))))
- '(warning ((t (:foreground "#8A6D1F"))))
+ '(highlight ((t (:foreground "#1E2F45" :background "#7A5F1A"))))
+ '(link ((t (:foreground "#1B6E8A" :underline t))))
+ '(error ((t (:foreground "#AE4A42" :weight bold))))
+ '(warning ((t (:foreground "#7A5F1A"))))
 
  ;; Completion / UI extras
  '(company-preview ((t (:background "#E3EAF6" :foreground "#1E2F45"))))

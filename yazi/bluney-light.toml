@@ -12,16 +12,16 @@ overall = { fg = "#1E2F45", bg = "#F0F5FB" }
 
 [mgr]
 cwd = { fg = "#2F6FB8", bold = true }
-find_keyword = { fg = "#8A6D1F", bold = true, italic = true, underline = true }
+find_keyword = { fg = "#7A5F1A", bold = true, italic = true, underline = true }
 find_position = { fg = "#2F5E9E", bg = "reset", bold = true, italic = true }
 symlink_target = { italic = true }
 marker_copied = { fg = "#2F6FB8", bg = "#2F6FB8" }
-marker_cut = { fg = "#C0574E", bg = "#C0574E" }
-marker_marked = { fg = "#1F7E9E", bg = "#1F7E9E" }
-marker_selected = { fg = "#8A6D1F", bg = "#8A6D1F" }
+marker_cut = { fg = "#AE4A42", bg = "#AE4A42" }
+marker_marked = { fg = "#1B6E8A", bg = "#1B6E8A" }
+marker_selected = { fg = "#7A5F1A", bg = "#7A5F1A" }
 count_copied = { fg = "#F0F5FB", bg = "#2F6FB8" }
-count_cut = { fg = "#F0F5FB", bg = "#C0574E" }
-count_selected = { fg = "#F0F5FB", bg = "#8A6D1F" }
+count_cut = { fg = "#F0F5FB", bg = "#AE4A42" }
+count_selected = { fg = "#F0F5FB", bg = "#7A5F1A" }
 border_symbol = "│"
 border_style = { fg = "#5A6F8A" }
 
@@ -34,10 +34,10 @@ sep_outer = { open = "", close = "" }
 [mode]
 normal_main = { bg = "#2F6FB8", bold = true }
 normal_alt = { fg = "#2F6FB8", bg = "#E3EAF6" }
-select_main = { bg = "#C0574E", bold = true }
-select_alt = { fg = "#C0574E", bg = "#E3EAF6" }
-unset_main = { bg = "#C0574E", bold = true }
-unset_alt = { fg = "#C0574E", bg = "#E3EAF6" }
+select_main = { bg = "#AE4A42", bold = true }
+select_alt = { fg = "#AE4A42", bg = "#E3EAF6" }
+unset_main = { bg = "#AE4A42", bold = true }
+unset_alt = { fg = "#AE4A42", bg = "#E3EAF6" }
 
 [status]
 overall = { fg = "#1E2F45", bg = "#E3EAF6" }
@@ -46,11 +46,11 @@ overall = { fg = "#1E2F45", bg = "#E3EAF6" }
 rules = [
 	{ mime = "image/*", fg = "#2F6FB8" },
 	{ mime = "{audio,video}/*", fg = "#2F5E9E" },
-	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#C0574E" },
-	{ mime = "application/{pdf,doc,rtf}", fg = "#1F7E9E" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#AE4A42" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#1B6E8A" },
 	{ mime = "vfs/{absent,stale}", fg = "#5A6F8A" },
-	{ url = "*", is = "orphan", bg = "#C0574E" },
+	{ url = "*", is = "orphan", bg = "#AE4A42" },
 	{ url = "*", is = "exec", fg = "#2F6FB8" },
-	{ url = "*", is = "dummy", bg = "#C0574E" },
+	{ url = "*", is = "dummy", bg = "#AE4A42" },
 	{ url = "*/", fg = "#2F5E9E" }
 ]

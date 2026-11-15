@@ -4,7 +4,7 @@
 ![Vim](https://img.shields.io/badge/vim-9%2B-blue.svg)
 ![Neovim](https://img.shields.io/badge/neovim-0.9%2B-blue.svg)
 ![Termux](https://img.shields.io/badge/termux-supported-blue.svg)
-![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Emacs](https://img.shields.io/badge/emacs-28%2B-blue.svg)
 ![Fish](https://img.shields.io/badge/fish-3.0%2B-blue.svg)
 ![Zsh](https://img.shields.io/badge/zsh-5.0%2B-blue.svg)
@@ -17,7 +17,7 @@
 ![Vivid](https://img.shields.io/badge/vivid-supported-blue.svg)
 ![Foot](https://img.shields.io/badge/foot-supported-blue.svg)
 
-Green-injected terminal, editor, and shell theme family. Like oceanic but slightly bluer — every neutral hue-shifted toward blue, every accent a blue derivative.
+**Blue-injected terminal, editor, shell and app theme family.** Like oceanic but slightly bluer — every neutral hue-shifted toward blue, every accent a blue derivative.
 
 **Generated theme family.** Every artifact is rendered from a single `palette.json` by `gen.py` (stdlib only). Run `make gen` to regenerate, `make check` to verify no drift.
 

@@ -8,6 +8,6 @@
 --colors=path:fg:47,94,158
 --colors=path:style:bold
 --colors=line:fg:90,111,138
---colors=column:fg:31,126,158
---colors=highlight:bg:138,109,31
+--colors=column:fg:27,110,138
+--colors=highlight:bg:122,95,26
 --colors=highlight:fg:240,245,251

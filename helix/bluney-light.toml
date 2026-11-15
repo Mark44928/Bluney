@@ -19,36 +19,36 @@
 "ui.selection" = { bg = "#2F6FB8" }
 "ui.selection.primary" = { bg = "#2F6FB8" }
 "ui.cursor.select" = { bg = "#2F5E9E" }
-"ui.cursor.insert" = { bg = "#1F7E9E" }
-"ui.cursor.match" = { fg = "#F0F5FB", bg = "#8A6D1F" }
+"ui.cursor.insert" = { bg = "#1B6E8A" }
+"ui.cursor.match" = { fg = "#F0F5FB", bg = "#7A5F1A" }
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursorline.primary" = { bg = "#E3EAF6" }
 "ui.highlight" = { bg = "#E3EAF6" }
 "ui.menu" = { fg = "#1E2F45", bg = "#E3EAF6" }
 "ui.menu.selected" = { fg = "#F0F5FB", bg = "#2F6FB8" }
 
-"diagnostic.hint" = { underline = { color = "#1F7E9E", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "#1B6E8A", style = "curl" } }
 "diagnostic.info" = { underline = { color = "#2F5E9E", style = "curl" } }
-"diagnostic.warning" = { underline = { color = "#8A6D1F", style = "curl" } }
-"diagnostic.error" = { underline = { color = "#C0574E", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "#7A5F1A", style = "curl" } }
+"diagnostic.error" = { underline = { color = "#AE4A42", style = "curl" } }
 "diagnostic.unnecessary" = { modifiers = ["dim"] }
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
-warning = "#8A6D1F"
-error = "#C0574E"
+warning = "#7A5F1A"
+error = "#AE4A42"
 info = "#2F5E9E"
-hint = "#1F7E9E"
+hint = "#1B6E8A"
 
 attribute = "#2F5E9E"
 keyword = "#6B5AA8"
 "keyword.directive" = "#6B5AA8"
 namespace = "#6B5AA8"
 punctuation = "#5A6F8A"
-operator = "#8A6D1F"
+operator = "#7A5F1A"
 special = "#2F6FB8"
 variable = "#1E2F45"
 "variable.builtin" = "#6B5AA8"
-type = "#1F7E9E"
+type = "#1B6E8A"
 constructor = "#2F5E9E"
 function = "#2F6FB8"
 "function.macro" = "#2F6FB8"
@@ -56,32 +56,32 @@ tag = "#6B5AA8"
 comment = "#5A6F8A"
 constant = "#6B5AA8"
 string = "#2F6FB8"
-"constant.numeric" = "#1F7E9E"
+"constant.numeric" = "#1B6E8A"
 "constant.character.escape" = "#2F5E9E"
-label = "#8A6D1F"
+label = "#7A5F1A"
 tabstop = { modifiers = ["italic"], bg = "#E3EAF6" }
 
 "markup.heading" = { fg = "#2F6FB8", modifiers = ["bold"] }
 "markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
-"markup.link.url" = { fg = "#1F7E9E", modifiers = ["underlined"] }
+"markup.link.url" = { fg = "#1B6E8A", modifiers = ["underlined"] }
 "markup.raw" = "#2F6FB8"
 
 "diff.plus" = "#2F6FB8"
-"diff.minus" = "#C0574E"
-"diff.delta" = "#8A6D1F"
+"diff.minus" = "#AE4A42"
+"diff.delta" = "#7A5F1A"
 
-rainbow = ["#2F6FB8", "#2F5E9E", "#8A6D1F", "#1F7E9E", "#6B5AA8"]
+rainbow = ["#2F6FB8", "#2F5E9E", "#7A5F1A", "#1B6E8A", "#6B5AA8"]
 
 [palette]
 fg = "#1E2F45"
 bg = "#F0F5FB"
 primary = "#2F6FB8"
 secondary = "#2F5E9E"
-yellow = "#8A6D1F"
+yellow = "#7A5F1A"
 rose = "#6B5AA8"
-cyan = "#1F7E9E"
-error = "#C0574E"
+cyan = "#1B6E8A"
+error = "#AE4A42"
 comment = "#5A6F8A"
 surface = "#E3EAF6"
