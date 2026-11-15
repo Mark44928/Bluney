@@ -1,4 +1,4 @@
-# Bluney
+<h1 align="center"><img src="assets/logo.svg" width="840" alt="Bluney"></h1>
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Vim](https://img.shields.io/badge/vim-9%2B-blue.svg)
