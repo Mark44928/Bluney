@@ -75,7 +75,30 @@ Replaced files are backed up; the installer records what it wrote in
 `$XDG_STATE_HOME/<theme>/installed.tsv` so uninstall never deletes a file you
 edited (use `--force` to override).
 
-### Vim / Neovim
+### Neovim
+
+**lazy.nvim** — this is the whole setup:
+
+```lua
+{
+  "Mark44928/Bluney",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+  config = function(_, opts) require("bluney").setup(opts) end,
+}
+```
+
+For the light variant set `opts = { variant = "light" }`.
+
+**vim.pack** (Neovim 0.12+):
+
+```lua
+vim.pack.add({ "https://github.com/Mark44928/Bluney" })
+require("bluney").setup()
+```
+
+**Vim (manual runtime):**
 
 ```bash
 git clone https://github.com/Mark44928/Bluney.git
@@ -84,11 +107,15 @@ cp Bluney/colors/bluney-light.vim ~/.vim/colors/
 ```
 
 ```vim
-" ~/.vimrc or init.vim
 set termguicolors
-colorscheme bluney        " dark
-" colorscheme bluney-light  " light
+colorscheme bluney
 ```
+
+**Screenshots:** [dark](docs/neovim-dark.png) · [light](docs/neovim-light.png)
+
+| Neovim dark | Neovim light |
+|---|---|
+| ![Bluney in Neovim dark](docs/neovim-dark.png) | ![Bluney in Neovim light](docs/neovim-light.png) |
 
 ### Terminal emulators
 **Kitty**
