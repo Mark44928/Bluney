@@ -208,6 +208,7 @@ BUILDS = [
     ("btop.theme.tmpl", "btop/bluney-light.theme", "light"),
     ("micro.micro.tmpl", "micro/bluney-dark.micro", "dark"),
     ("micro.micro.tmpl", "micro/bluney-light.micro", "light"),
+    ("gallery.html.tmpl", "gallery.html", None),
     # Emacs theme (both variants)
     ("emacs-theme.el.tmpl", "emacs/bluney-dark-theme.el", "dark"),
     ("emacs-theme.el.tmpl", "emacs/bluney-light-theme.el", "light"),
