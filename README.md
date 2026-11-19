@@ -63,12 +63,12 @@ copies the matching variant. It never edits your main app configs — it prints
 the one include/theme line to add instead.
 
 ```bash
-./install.sh                     # interactive, dark by default
-./install.sh --light --all       # light variant, every detected app
-./install.sh --only termux,kitty,vim
-./install.sh --list              # show detected targets
-./install.sh --all --dry-run     # preview copies
-./install.sh --uninstall         # remove files recorded by the installer
+bash install.sh                     # interactive, dark by default
+bash install.sh --light --all       # light variant, every detected app
+bash install.sh --only termux,kitty,vim
+bash install.sh --list              # show detected targets
+bash install.sh --all --dry-run     # preview copies
+bash install.sh --uninstall         # remove files recorded by the installer
 ```
 
 Replaced files are backed up; the installer records what it wrote in
@@ -271,7 +271,7 @@ cp zellij/bluney-light.kdl ~/.config/zellij/themes/
 # then in ~/.config/zellij/config.kdl:  theme "bluney-dark"
 ```
 
-**vivid** (`bluney-dark.yml` / `bluney-light.yml`) — new in 1.1.0
+**vivid** (`bluney-dark.yml` / `bluney-light.yml`)
 ```bash
 # print the LS_COLORS theme for the current shell
 vivid generate vivid/bluney-dark.yml
@@ -281,7 +281,7 @@ eval "$(vivid generate vivid/bluney-dark.yml)"
 vivid apply vivid/bluney-dark.yml -V
 ```
 
-**foot** (`bluney-dark.ini` / `bluney-light.ini`) — new in 1.1.0
+**foot** (`bluney-dark.ini` / `bluney-light.ini`)
 ```bash
 cp foot/bluney-dark.ini ~/.config/foot/foot.ini
 # light variant, or keep both and include one:
@@ -340,11 +340,11 @@ cp micro/bluney-dark.micro ~/.config/micro/colorschemes/
 ## Verify the Colorscheme
 
 ```bash
-# Dark variant — Normal must show guifg/#C9E4CE guibg/#0C1F17, name prints 'bluney'
+# Dark variant — Normal must show guifg/#D5E5F2 guibg/#0E1B2E, name prints 'bluney'
 vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/Bluney" \
     -c "colorscheme bluney" -c "hi Normal" -c "echo g:colors_name" -c "qa!"
 
-# Light variant — Normal must show guifg/#24382C guibg/#F2F7EF, name prints 'bluney-light'
+# Light variant — Normal must show guifg/#1E2F45 guibg/#F0F5FB, name prints 'bluney-light'
 vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/Bluney" \
     -c "colorscheme bluney-light" -c "hi Normal" -c "echo g:colors_name" -c "qa!"
 ```
@@ -360,16 +360,16 @@ make check     # regenerate, regenerate the WCAG table, fail on git diff (drift 
 
 | Role | Dark | Light |
 |------|------|-------|
-| bg | `#0C1F17` | `#F2F7EF` |
-| surface | `#122A1F` | `#E6EFE2` |
-| fg | `#C9E4CE` | `#24382C` |
-| comment | `#78997F` | `#56695C` |
-| primary | `#7BD88F` | `#7BD88F` |
-| secondary | `#63C9A8` | `#63C9A8` |
-| yellow | `#B8CC7A` | `#B8CC7A` |
-| rose | `#A88EA0` | `#A88EA0` |
-| cyan | `#7FD7C4` | `#7FD7C4` |
-| error | `#C07A6E` | `#C07A6E` |
+| bg | `#0E1B2E` | `#F0F5FB` |
+| surface | `#152A45` | `#E3EAF6` |
+| fg | `#D5E5F2` | `#1E2F45` |
+| comment | `#7E9BB8` | `#5A6F8A` |
+| primary | `#7DBBFF` | `#2F6FB8` |
+| secondary | `#4F8FE0` | `#2F5E9E` |
+| yellow | `#E0CD97` | `#7A5F1A` |
+| rose | `#B9A8E0` | `#6B5AA8` |
+| cyan | `#7FD7F2` | `#1B6E8A` |
+| error | `#E18B8B` | `#AE4A42` |
 
 ## ANSI 16-Color Table
 
@@ -377,22 +377,22 @@ Bright colors (8–15) are visibly lighter variants of their normal counterparts
 
 | Var | Dark | Light |
 |-----|------|-------|
-| color0 | `#1A331C` | `#E6EFE2` |
-| color1 | `#A88EA0` | `#C07A6E` |
-| color2 | `#7BD88F` | `#7BD88F` |
-| color3 | `#B8CC7A` | `#B8CC7A` |
-| color4 | `#63C9A8` | `#63C9A8` |
-| color5 | `#A88EA0` | `#A88EA0` |
-| color6 | `#7FD7C4` | `#7FD7C4` |
-| color7 | `#A7C4A3` | `#C9E4CE` |
-| color8 | `#78997F` | `#56695C` |
-| color9 | `#D4B4C0` | `#E49A8E` |
-| color10 | `#9BEDAF` | `#9BEDAF` |
-| color11 | `#D4E49A` | `#D4E49A` |
-| color12 | `#8FE4C4` | `#8FE4C4` |
-| color13 | `#D4B4C0` | `#D4B4C0` |
-| color14 | `#A7EBDC` | `#A7EBDC` |
-| color15 | `#C9E4CE` | `#FFFFFF` |
+| color0 | `#16283E` | `#E3EAF6` |
+| color1 | `#E18B8B` | `#AE4A42` |
+| color2 | `#7DBBFF` | `#2F6FB8` |
+| color3 | `#E0CD97` | `#7A5F1A` |
+| color4 | `#4F8FE0` | `#2F5E9E` |
+| color5 | `#B9A8E0` | `#6B5AA8` |
+| color6 | `#7FD7F2` | `#1B6E8A` |
+| color7 | `#D5E5F2` | `#1E2F45` |
+| color8 | `#5F7E9E` | `#5A6F8A` |
+| color9 | `#F0A8A8` | `#D0705F` |
+| color10 | `#A8D4FF` | `#4F8FD4` |
+| color11 | `#EBDFA8` | `#A08428` |
+| color12 | `#7FA9E8` | `#5B7FC4` |
+| color13 | `#CDBEF0` | `#8B7FD4` |
+| color14 | `#A8E8F8` | `#3E9EB8` |
+| color15 | `#FFFFFF` | `#FFFFFF` |
 
 ## Contributing
 
@@ -406,7 +406,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for adding terminal emulators, changing t
 Tiny, dependency-free tools from the same family:
 
 - [Pythonator](https://github.com/Mark44928/Pythonator) — Python rewrite of Plusalator — stdlib-only, `--eval`/`--json`
+- [Solvamath](https://github.com/Mark44928/Solvamath) — terminal math puzzle game — seven puzzle types, daily seed, achievements
 - [Greenit](https://github.com/Mark44928/Greenit) — green-injected theme family — dark + light, single palette.json
+- [Yellen](https://github.com/Mark44928/Yellen) — golden-yellow theme family — dark + light, single palette.json
 - [Mark44928](https://github.com/Mark44928) — profile and project index
 - [plusafetch](https://github.com/Mark44928/plusafetch) — C++23 fetch for Termux — ~23 ms, zero subprocesses on the default path
 - [Plusalator](https://github.com/Mark44928/Plusalator) — C++17 calculator REPL — Qalculate-flavored, ghost autosuggest, 18 themes

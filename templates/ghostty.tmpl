@@ -1,6 +1,11 @@
 # Bluney ${variant} — blue-injected terminal theme
+{{#if is_light}}
+# Install: append to ~/.config/ghostty/config, or:
+#   include = $HOME/Bluney/extras/ghostty-light
+{{else}}
 # Install: append to ~/.config/ghostty/config, or:
 #   include = $HOME/Bluney/extras/ghostty
+{{/if}}
 
 background = ${P.terminal.background}
 foreground = ${P.terminal.foreground}

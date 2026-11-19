@@ -1,6 +1,6 @@
 # Bluney Dark — blue-injected terminal theme
-# Install: cp extras/alacritty.toml ~/.config/alacritty/themes/bluney.toml
-# Then add `import = ["~/.../bluney.toml"]` to alacritty.toml
+
+
 
 [colors.primary]
 background = "#0E1B2E"

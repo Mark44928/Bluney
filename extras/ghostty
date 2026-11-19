@@ -1,6 +1,5 @@
 # Bluney dark — blue-injected terminal theme
-# Install: append to ~/.config/ghostty/config, or:
-#   include = $HOME/Bluney/extras/ghostty
+
 
 background = #0E1B2E
 foreground = #D5E5F2

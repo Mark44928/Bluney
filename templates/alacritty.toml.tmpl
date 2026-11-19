@@ -1,6 +1,12 @@
 # Bluney ${variant_name} — blue-injected terminal theme
+
+{{#if is_light}}
+# Install: cp extras/alacritty-light.toml ~/.config/alacritty/themes/bluney-light.toml
+# Then add `import = ["~/.../bluney-light.toml"]` to alacritty.toml
+{{else}}
 # Install: cp extras/alacritty.toml ~/.config/alacritty/themes/bluney.toml
 # Then add `import = ["~/.../bluney.toml"]` to alacritty.toml
+{{/if}}
 
 [colors.primary]
 background = "${P.terminal.background}"
