@@ -111,6 +111,8 @@ set termguicolors
 colorscheme bluney
 ```
 
+![Bluney terminal theme](docs/screenshot-terminal.png)
+
 **Screenshots:** [dark](docs/neovim-dark.png) · [light](docs/neovim-light.png)
 
 | Neovim dark | Neovim light |
