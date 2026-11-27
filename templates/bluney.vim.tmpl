@@ -36,11 +36,9 @@ else
   let s:term = 0
 endif
 
-" ---- palette (per variant) ----
-" dark: bg #0C1F17 surface #122A1F fg #C9E4CE comment #78997F
-" light: bg #F2F7EF surface #E6EFE2 fg #24382C comment #56695C
-" accents (both): primary #7BD88F secondary #63C9A8 yellow #B8CC7A
-"   rose #A88EA0 cyan #7FD7C4 error #C07A6E{{#variant light}}
+" ---- palette (mirrors palette.json — update both together) ----
+" dark: bg #0E1B2E surface #152A45 fg #D5E5F2 comment #7E9BB8
+" light: bg #F0F5FB surface #E3EAF6 fg #1E2F45 comment #5A6F8A{{#variant light}}
 
 if s:light
   let s:bg   = '${P.editor.bg}'
