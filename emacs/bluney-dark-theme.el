@@ -1,6 +1,6 @@
 ;;; bluney-dark-theme.el --- Bluney blue-injected Emacs theme -*- lexical-binding: t -*-
 ;;; Recipe: oceanic, slightly bluer — every neutral hue-shifted toward
-;;; green, every accent a blue derivative.
+;;; blue, every accent a blue derivative.
 
 (deftheme bluney-dark
   "Bluney: a blue-injected theme family — {{variant}} variant.
